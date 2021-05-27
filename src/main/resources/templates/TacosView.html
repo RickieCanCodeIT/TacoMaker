@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tacos</title>
+</head>
+<body>
+<h1>All the Tacos!</h1>
+
+<div th:each="Taco: ${TacosModel}">
+    <p th:text="'Taco Name: ' + ${Taco.name}"></p>
+    <p th:text="'Shell: ' + ${Taco.shell}"></p>
+    <p th:text="'Topping: ' + ${Taco.topping.toppingType}"></p>
+</div>
+
+<form action="/add-taco" method="POST">
+    <input type="text" name="name" placeholder="What is the name of the Taco?">
+    <input type="text" name="shell" placeholder="What type of shell?">
+    <input type="text" name="topping" placeholder="What topping?">
+
+    <button type="submit">Add a taco</button>
+</form>
+</body>
+</html>
